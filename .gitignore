@@ -1,0 +1,31 @@
+# Gradle and IDE output
+.gradle/
+build/
+**/build/
+.idea/
+*.iml
+
+# Local Android and secret configuration
+local.properties
+secrets.properties
+*.jks
+*.keystore
+iosApp/Configuration/Secrets.xcconfig
+
+# Xcode
+xcuserdata/
+*.xcworkspace/xcuserdata/
+DerivedData/
+
+# macOS
+.DS_Store
+
+# Native build output
+.kotlin/
+*.hprof
+
+# Local tooling output
+scripts/
+tmp/
+graphify-out/
+.graphify_*

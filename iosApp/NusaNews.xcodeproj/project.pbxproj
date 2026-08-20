@@ -1,0 +1,367 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0DAAABD72BE9E8E5176EB1F5 /* AppErrorText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F3E2874FF33DA43801F2B /* AppErrorText.swift */; };
+		583FE9FB47EC1B0B0F054F7C /* NewsTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366EEE4C45A1BC70F44C4DAE /* NewsTopBar.swift */; };
+		7602F26E180502E2D59E42B5 /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7244C11DC4618D2AB6F1B2 /* DesignSystem.swift */; };
+		78CFE35157B02C36C01404E6 /* ArticleFeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50E608E3CD8E5E406DF325 /* ArticleFeedModel.swift */; };
+		79E970AAE9146FD03EA29B39 /* NusaNewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069E0F8DEC2DC56247F31887 /* NusaNewsApp.swift */; };
+		8BE885C293544D36F05A6F6E /* ImageViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C63EC02FADF9EACBC0BF68 /* ImageViewer.swift */; };
+		A7432C15C022191CF4617E38 /* ArticleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8625FFA59701700A9EDDF916 /* ArticleDetailView.swift */; };
+		ED7D7E60FAD6C682A9A5656C /* ArticleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E923D655A89D5CD49DF64F2 /* ArticleListView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		069E0F8DEC2DC56247F31887 /* NusaNewsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NusaNewsApp.swift; sourceTree = "<group>"; };
+		12C63EC02FADF9EACBC0BF68 /* ImageViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewer.swift; sourceTree = "<group>"; };
+		2422284BF604DC7883D46BEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		366EEE4C45A1BC70F44C4DAE /* NewsTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTopBar.swift; sourceTree = "<group>"; };
+		4A50E608E3CD8E5E406DF325 /* ArticleFeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleFeedModel.swift; sourceTree = "<group>"; };
+		4E923D655A89D5CD49DF64F2 /* ArticleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListView.swift; sourceTree = "<group>"; };
+		8625FFA59701700A9EDDF916 /* ArticleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailView.swift; sourceTree = "<group>"; };
+		89430367FF4119924EBFDB27 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		AD7244C11DC4618D2AB6F1B2 /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
+		E31F3E2874FF33DA43801F2B /* AppErrorText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppErrorText.swift; sourceTree = "<group>"; };
+		F20E7E3307C0F00221E57C98 /* NusaNews.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = NusaNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		1A6251FC22DE7E3C79D3C77B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F20E7E3307C0F00221E57C98 /* NusaNews.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6CC43FC036C3747AFF3AFD8A /* NusaNews */ = {
+			isa = PBXGroup;
+			children = (
+				E31F3E2874FF33DA43801F2B /* AppErrorText.swift */,
+				8625FFA59701700A9EDDF916 /* ArticleDetailView.swift */,
+				4A50E608E3CD8E5E406DF325 /* ArticleFeedModel.swift */,
+				4E923D655A89D5CD49DF64F2 /* ArticleListView.swift */,
+				AD7244C11DC4618D2AB6F1B2 /* DesignSystem.swift */,
+				12C63EC02FADF9EACBC0BF68 /* ImageViewer.swift */,
+				2422284BF604DC7883D46BEA /* Info.plist */,
+				366EEE4C45A1BC70F44C4DAE /* NewsTopBar.swift */,
+				069E0F8DEC2DC56247F31887 /* NusaNewsApp.swift */,
+			);
+			path = NusaNews;
+			sourceTree = "<group>";
+		};
+		7E29A71867446152C1A84EB4 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				89430367FF4119924EBFDB27 /* Config.xcconfig */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		8F6ABA141F5A9FA76C9D0566 = {
+			isa = PBXGroup;
+			children = (
+				7E29A71867446152C1A84EB4 /* Configuration */,
+				6CC43FC036C3747AFF3AFD8A /* NusaNews */,
+				1A6251FC22DE7E3C79D3C77B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E50ACCF3FC0AE23890087756 /* NusaNews */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2DB54AFD05F4839C2775490B /* Build configuration list for PBXNativeTarget "NusaNews" */;
+			buildPhases = (
+				8E2D62A02B9DF80276ACDEC0 /* Build and embed shared KMP framework */,
+				767E0C26D0385B0BE499F904 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NusaNews;
+			packageProductDependencies = (
+			);
+			productName = NusaNews;
+			productReference = F20E7E3307C0F00221E57C98 /* NusaNews.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1E1582F1AA59F5AED63656A5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = 796D36A38B7DF7F004A57CF5 /* Build configuration list for PBXProject "NusaNews" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 8F6ABA141F5A9FA76C9D0566;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 1A6251FC22DE7E3C79D3C77B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E50ACCF3FC0AE23890087756 /* NusaNews */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8E2D62A02B9DF80276ACDEC0 /* Build and embed shared KMP framework */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build and embed shared KMP framework";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"$SRCROOT/..\"\n./gradlew :shared:embedAndSignAppleFrameworkForXcode\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		767E0C26D0385B0BE499F904 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0DAAABD72BE9E8E5176EB1F5 /* AppErrorText.swift in Sources */,
+				A7432C15C022191CF4617E38 /* ArticleDetailView.swift in Sources */,
+				78CFE35157B02C36C01404E6 /* ArticleFeedModel.swift in Sources */,
+				ED7D7E60FAD6C682A9A5656C /* ArticleListView.swift in Sources */,
+				7602F26E180502E2D59E42B5 /* DesignSystem.swift in Sources */,
+				8BE885C293544D36F05A6F6E /* ImageViewer.swift in Sources */,
+				583FE9FB47EC1B0B0F054F7C /* NewsTopBar.swift in Sources */,
+				79E970AAE9146FD03EA29B39 /* NusaNewsApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		6E023E22F3F94183083E4CA8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89430367FF4119924EBFDB27 /* Config.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
+				);
+				INFOPLIST_FILE = NusaNews/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					NusaNewsShared,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ahmaddody.newsreader.ios;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		7577B03F8C609D0CA7F26A86 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		7D41035390AE0B3FA22EEF38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		C987E7DF4BB5EED350AC8671 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89430367FF4119924EBFDB27 /* Config.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
+				);
+				INFOPLIST_FILE = NusaNews/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					NusaNewsShared,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ahmaddody.newsreader.ios;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2DB54AFD05F4839C2775490B /* Build configuration list for PBXNativeTarget "NusaNews" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E023E22F3F94183083E4CA8 /* Debug */,
+				C987E7DF4BB5EED350AC8671 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		796D36A38B7DF7F004A57CF5 /* Build configuration list for PBXProject "NusaNews" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D41035390AE0B3FA22EEF38 /* Debug */,
+				7577B03F8C609D0CA7F26A86 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1E1582F1AA59F5AED63656A5 /* Project object */;
+}

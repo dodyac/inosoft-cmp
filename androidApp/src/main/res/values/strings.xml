@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Nusa News</string>
+    <string name="list_title">Top stories</string>
+    <string name="list_subtitle">Indonesia</string>
+    <string name="detail_title">News Detail</string>
+    <string name="navigate_back">Navigate back</string>
+    <string name="retry">Try again</string>
+    <string name="feed_top_headlines">Top headlines</string>
+    <string name="feed_everything">Everything</string>
+    <string name="feed_selector">News feed</string>
+    <string name="loading_articles">Finding today’s stories…</string>
+    <string name="saved_articles_title">You’re reading saved stories</string>
+    <string name="saved_articles_description">A refresh failed, but your last downloaded news is still available.</string>
+    <string name="empty_title">No stories yet</string>
+    <string name="empty_description">Pull down to refresh, or try again in a moment.</string>
+    <string name="error_title">We couldn’t load the news</string>
+    <string name="description_unavailable">No description is available for this story.</string>
+    <string name="source_unknown">Unknown source</string>
+    <string name="article_image_description">Image for %1$s</string>
+    <string name="article_image_unavailable">Image unavailable</string>
+    <string name="image_viewer_open">Open image full screen</string>
+    <string name="image_viewer_close">Close image</string>
+
+    <string name="error_missing_api_key">News isn’t available right now. Please try again later.</string>
+    <string name="error_network">You appear to be offline. Check your connection and try again.</string>
+    <string name="error_timeout">This is taking longer than usual. Please try again.</string>
+    <string name="error_unauthorized">News isn’t available right now. Please try again later.</string>
+    <string name="error_rate_limited">You’ve refreshed a lot recently. Please try again in a few minutes.</string>
+    <string name="error_request_rejected">We couldn’t load the news right now. Please try again.</string>
+    <string name="error_server">The news is temporarily unavailable. Please try again shortly.</string>
+    <string name="error_malformed_response">Something went wrong while loading the news. Please try again.</string>
+    <string name="error_database">Your saved stories aren’t available right now. Please try again.</string>
+    <string name="error_article_not_found">This story isn’t available anymore.</string>
+    <string name="error_unknown">Something went wrong. Please try again.</string>
+</resources>

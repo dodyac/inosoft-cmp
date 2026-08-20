@@ -1,0 +1,5 @@
+// Base configuration. The real key lives in the git-ignored Secrets.xcconfig,
+// which is optionally included below and overrides this empty default.
+NEWS_API_KEY =
+
+#include? "Secrets.xcconfig"

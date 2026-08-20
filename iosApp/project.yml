@@ -1,0 +1,50 @@
+name: NusaNews
+options:
+  bundleIdPrefix: com.ahmaddody
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+  generateEmptyDirectories: true
+
+configs:
+  Debug: debug
+  Release: release
+
+targets:
+  NusaNews:
+    type: application
+    platform: iOS
+    sources:
+      - path: NusaNews
+    configFiles:
+      Debug: Configuration/Config.xcconfig
+      Release: Configuration/Config.xcconfig
+    info:
+      path: NusaNews/Info.plist
+      properties:
+        CFBundleDisplayName: Nusa News
+        CFBundleShortVersionString: "1.0.0"
+        CFBundleVersion: "1"
+        NewsApiKey: $(NEWS_API_KEY)
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.ahmaddody.newsreader.ios
+        SWIFT_VERSION: "5.0"
+        TARGETED_DEVICE_FAMILY: "1"
+        ENABLE_USER_SCRIPT_SANDBOXING: NO
+        FRAMEWORK_SEARCH_PATHS:
+          - $(inherited)
+          - $(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)
+        OTHER_LDFLAGS:
+          - $(inherited)
+          - -framework
+          - NusaNewsShared
+    preBuildScripts:
+      - name: Build and embed shared KMP framework
+        basedOnDependencyAnalysis: false
+        script: |
+          cd "$SRCROOT/.."
+          ./gradlew :shared:embedAndSignAppleFrameworkForXcode
