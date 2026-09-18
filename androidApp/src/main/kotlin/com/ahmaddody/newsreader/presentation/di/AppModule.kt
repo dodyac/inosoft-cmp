@@ -6,11 +6,18 @@ import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
 val appModule = module {
-    viewModel { ArticleListViewModel(observeArticles = get(), refreshArticles = get()) }
+    viewModel {
+        ArticleListViewModel(
+            observeArticles = get(),
+            refreshArticles = get(),
+            observability = get(),
+        )
+    }
     viewModel { parameters ->
         ArticleDetailViewModel(
             articleId = parameters.get(),
             observeArticle = get(),
+            observability = get(),
         )
     }
 }

@@ -7,6 +7,10 @@ import com.ahmaddody.newsreader.domain.model.RefreshResult
 import com.ahmaddody.newsreader.domain.usecase.ObserveArticle
 import com.ahmaddody.newsreader.domain.usecase.ObserveArticles
 import com.ahmaddody.newsreader.domain.usecase.RefreshArticles
+import com.ahmaddody.newsreader.observability.AnalyticsEvents
+import com.ahmaddody.newsreader.observability.AnalyticsParams
+import com.ahmaddody.newsreader.observability.CrashKeys
+import com.ahmaddody.newsreader.observability.Observability
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -27,6 +31,7 @@ class NewsFacade internal constructor(
     private val observeArticles: ObserveArticles,
     private val observeArticle: ObserveArticle,
     private val refreshArticles: RefreshArticles,
+    private val observability: Observability,
 ) {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
 
@@ -55,6 +60,38 @@ class NewsFacade internal constructor(
 
     /** Exported to Swift as an `async` function; cancellation propagates from the Swift task. */
     suspend fun refresh(feed: NewsFeed): RefreshResult = refreshArticles(feed)
+
+    /**
+     * SwiftUI views report screen and feed changes through here rather than calling Firebase
+     * directly, so the event taxonomy stays defined once in `:shared` and the two platforms'
+     * dashboards remain comparable.
+     */
+    fun trackScreenViewed(screenName: String) {
+        observability.crash.setKey(CrashKeys.Screen, screenName)
+        observability.analytics.track(
+            AnalyticsEvents.ScreenViewed,
+            mapOf(AnalyticsParams.ScreenName to screenName),
+        )
+    }
+
+    fun trackFeedSelected(feed: NewsFeed) {
+        observability.crash.setKey(CrashKeys.Feed, feed.name)
+        observability.analytics.track(
+            AnalyticsEvents.FeedSelected,
+            mapOf(AnalyticsParams.Feed to feed.name),
+        )
+    }
+
+    fun trackRefreshRequested(feed: NewsFeed) {
+        observability.analytics.track(
+            AnalyticsEvents.FeedRefreshRequested,
+            mapOf(AnalyticsParams.Feed to feed.name),
+        )
+    }
+
+    fun trackArticleOpened() {
+        observability.analytics.track(AnalyticsEvents.ArticleOpened, emptyMap())
+    }
 
     private fun Job.asHandle() = SubscriptionHandle(this)
 }

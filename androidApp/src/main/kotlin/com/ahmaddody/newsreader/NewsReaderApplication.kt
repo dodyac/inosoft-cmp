@@ -2,6 +2,7 @@ package com.ahmaddody.newsreader
 
 import android.app.Application
 import android.util.Log
+import com.ahmaddody.newsreader.debug.DebugTools
 import com.ahmaddody.newsreader.di.androidSharedModules
 import com.ahmaddody.newsreader.presentation.di.appModule
 import org.koin.android.ext.koin.androidContext
@@ -15,6 +16,7 @@ class NewsReaderApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         warnAboutMissingApiKey()
+        DebugTools.install(isDebugBuild = BuildConfig.DEBUG)
 
         startKoin {
             logger(AndroidLogger(Level.ERROR))
@@ -24,6 +26,8 @@ class NewsReaderApplication : Application() {
                     context = this@NewsReaderApplication,
                     apiKey = BuildConfig.NEWS_API_KEY,
                     enableNetworkLogs = BuildConfig.DEBUG,
+                    customizeHttpClient = DebugTools.customizeHttpClient,
+                    decorateObservability = DebugTools::decorateObservability,
                 ) + appModule,
             )
         }

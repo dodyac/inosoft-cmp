@@ -125,6 +125,8 @@ final class ArticleDetailModel: ObservableObject {
 
     func start() {
         guard subscription == nil else { return }
+        facade.trackScreenViewed(screenName: Screens.shared.ArticleDetail)
+        facade.trackArticleOpened()
         subscription = facade.observeArticle(
             articleId: articleId,
             onArticle: { [weak self] article in

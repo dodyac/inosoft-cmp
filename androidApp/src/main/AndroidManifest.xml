@@ -19,5 +19,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--
+            Exported log bundles are shared with a content URI rather than a file:// path, so the
+            receiving app gets temporary read access to one file and nothing else. Only the export
+            folder is exposed; the raw rotating logs never are.
+        -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.logs"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/nusa_news_log_paths" />
+        </provider>
     </application>
 </manifest>

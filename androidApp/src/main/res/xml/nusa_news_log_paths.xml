@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- Only the export folder is shareable. The raw rotating logs are never exposed directly. -->
+    <files-path
+        name="nusa_news_log_exports"
+        path="log-exports/" />
+</paths>

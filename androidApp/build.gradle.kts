@@ -4,6 +4,9 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.google.services)
+    alias(libs.plugins.firebase.crashlytics)
+    alias(libs.plugins.firebase.perf)
 }
 
 val localProperties = Properties().apply {
@@ -26,7 +29,7 @@ android {
 
     defaultConfig {
         applicationId = "com.ahmaddody.newsreader"
-        minSdk = 23
+        minSdk = 24
         targetSdk = 36
         versionCode = 1
         versionName = "1.0.0"
@@ -53,9 +56,20 @@ android {
     }
 
     buildTypes {
+        debug {
+            // Debug builds are not minified, so there is no mapping file worth uploading.
+            // Collection itself stays on so the wiring can be verified from a dev device.
+            configure<com.google.firebase.crashlytics.buildtools.gradle.CrashlyticsExtension> {
+                mappingFileUploadEnabled = false
+            }
+        }
         release {
             isMinifyEnabled = true
             isShrinkResources = true
+            configure<com.google.firebase.crashlytics.buildtools.gradle.CrashlyticsExtension> {
+                // R8 is on, so without the mapping file every release stack trace is noise.
+                mappingFileUploadEnabled = true
+            }
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro",
@@ -78,10 +92,19 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.navigation.compose)
 
+    // Needed because androidSharedModules exposes a Ktor client-config seam to the debug variant.
+    implementation(libs.ktor.client.core)
+
     implementation(libs.koin.android)
     implementation(libs.koin.androidx.compose)
     implementation(libs.coil.compose)
     implementation(libs.coil.network.ktor3)
+
+    // In-app inspector: non-production variants only, so it cannot reach a release artifact.
+    debugImplementation(libs.aelog.logs)
+    debugImplementation(libs.aelog.network.ktor)
+    debugImplementation(libs.aelog.analytics)
+    debugImplementation(libs.aelog.crashes)
 
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)

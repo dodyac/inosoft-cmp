@@ -8,6 +8,12 @@ import com.ahmaddody.newsreader.domain.model.NewsFeed
 import com.ahmaddody.newsreader.domain.model.RefreshResult
 import com.ahmaddody.newsreader.domain.usecase.ObserveArticles
 import com.ahmaddody.newsreader.domain.usecase.RefreshArticles
+import com.ahmaddody.newsreader.observability.AnalyticsEvents
+import com.ahmaddody.newsreader.observability.AnalyticsParams
+import com.ahmaddody.newsreader.observability.CrashKeys
+import com.ahmaddody.newsreader.observability.Observability
+import com.ahmaddody.newsreader.observability.Screens
+import com.ahmaddody.newsreader.observability.logging.LogTags
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -33,6 +39,9 @@ data class ArticleListUiState(
 class ArticleListViewModel(
     private val observeArticles: ObserveArticles,
     private val refreshArticles: RefreshArticles,
+    // Defaulted so UI tests can build a ViewModel without a telemetry graph. Production wiring in
+    // AppModule passes the real bundle explicitly, so a missing binding still fails loudly there.
+    private val observability: Observability = Observability.NoOp,
 ) : ViewModel() {
     private val selectedFeed = MutableStateFlow(NewsFeed.Default)
     private val syncStates = MutableStateFlow(emptyMap<NewsFeed, SyncState>())
@@ -87,6 +96,12 @@ class ArticleListViewModel(
     )
 
     init {
+        observability.crash.setKey(CrashKeys.Screen, Screens.ArticleList)
+        observability.breadcrumb(LogTags.Navigation, "opened ${Screens.ArticleList}")
+        observability.analytics.track(
+            AnalyticsEvents.ScreenViewed,
+            mapOf(AnalyticsParams.ScreenName to Screens.ArticleList),
+        )
         refresh()
     }
 
@@ -97,12 +112,22 @@ class ArticleListViewModel(
     fun selectFeed(feed: NewsFeed) {
         if (selectedFeed.value == feed) return
         selectedFeed.value = feed
+        observability.crash.setKey(CrashKeys.Feed, feed.name)
+        observability.breadcrumb(LogTags.Navigation, "selected feed ${feed.name}")
+        observability.analytics.track(
+            AnalyticsEvents.FeedSelected,
+            mapOf(AnalyticsParams.Feed to feed.name),
+        )
         if (syncStates.value[feed] == null) refresh()
     }
 
     fun refresh() {
         val feed = selectedFeed.value
         if (refreshJobs[feed]?.isActive == true) return
+        observability.analytics.track(
+            AnalyticsEvents.FeedRefreshRequested,
+            mapOf(AnalyticsParams.Feed to feed.name),
+        )
         // A failed local observer never recovers on its own; restart it before syncing again.
         if (localError.value != null) localObserverGeneration.value += 1
         syncStates.update(feed, SyncState.Loading)

@@ -5,6 +5,12 @@ import androidx.lifecycle.viewModelScope
 import com.ahmaddody.newsreader.domain.model.AppError
 import com.ahmaddody.newsreader.domain.model.Article
 import com.ahmaddody.newsreader.domain.usecase.ObserveArticle
+import com.ahmaddody.newsreader.observability.AnalyticsEvents
+import com.ahmaddody.newsreader.observability.AnalyticsParams
+import com.ahmaddody.newsreader.observability.CrashKeys
+import com.ahmaddody.newsreader.observability.Observability
+import com.ahmaddody.newsreader.observability.Screens
+import com.ahmaddody.newsreader.observability.logging.LogTags
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
@@ -19,7 +25,20 @@ data class ArticleDetailUiState(
 class ArticleDetailViewModel(
     articleId: String,
     observeArticle: ObserveArticle,
+    observability: Observability = Observability.NoOp,
 ) : ViewModel() {
+    init {
+        observability.crash.setKey(CrashKeys.Screen, Screens.ArticleDetail)
+        observability.breadcrumb(LogTags.Navigation, "opened ${Screens.ArticleDetail}")
+        // The article id is deliberately not sent: it is high-cardinality and answers no product
+        // question that Analytics is meant to answer.
+        observability.analytics.track(
+            AnalyticsEvents.ScreenViewed,
+            mapOf(AnalyticsParams.ScreenName to Screens.ArticleDetail),
+        )
+        observability.analytics.track(AnalyticsEvents.ArticleOpened, emptyMap())
+    }
+
     val uiState = observeArticle(articleId)
         .map { article ->
             if (article == null) {

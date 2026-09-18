@@ -32,6 +32,7 @@ final class ArticleFeedModel: ObservableObject {
 
     func start() {
         guard subscription == nil else { return }
+        facade.trackScreenViewed(screenName: Screens.shared.ArticleList)
         observeSelectedFeed()
         Task { await refresh() }
     }
@@ -41,6 +42,7 @@ final class ArticleFeedModel: ObservableObject {
     func select(feed: NewsFeed) {
         guard feed != selectedFeed else { return }
         selectedFeed = feed
+        facade.trackFeedSelected(feed: feed)
         articles = []
         observeSelectedFeed()
         recomputeState()
@@ -76,6 +78,7 @@ final class ArticleFeedModel: ObservableObject {
         // Mirrors the Android guard: a second pull while a sync is in flight is a no-op.
         let feed = selectedFeed
         guard !feedsInFlight.contains(feed) else { return }
+        facade.trackRefreshRequested(feed: feed)
         feedsInFlight.insert(feed)
         defer { feedsInFlight.remove(feed) }
 

@@ -5,9 +5,14 @@ import NusaNewsShared
 struct NusaNewsApp: App {
     init() {
         AppConfiguration.warnAboutMissingApiKey()
+        // Must run before Koin: the shared graph is handed the already-configured trackers.
+        FirebaseObservability.configure()
         SharedModule_iosKt.doInitKoinIos(
             apiKey: AppConfiguration.newsApiKey,
-            enableNetworkLogs: AppConfiguration.isDebugBuild
+            enableNetworkLogs: AppConfiguration.isDebugBuild,
+            performanceTracer: FirebaseObservability.performanceTracer,
+            analyticsTracker: FirebaseObservability.analyticsTracker,
+            logExporter: IosLogExporter()
         )
     }
 

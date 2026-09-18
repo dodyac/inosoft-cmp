@@ -29,3 +29,8 @@ scripts/
 tmp/
 graphify-out/
 .graphify_*
+/todo
+
+# Firebase config
+google-services.json
+GoogleService-Info.plist

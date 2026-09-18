@@ -16,7 +16,7 @@ import org.koin.dsl.module
 internal fun sharedCoreModule(hasApiKey: Boolean) = module {
     single<ArticleLocalDataSource> { RoomArticleLocalDataSource(get<NewsDatabase>().articleDao()) }
     single<ArticleRemoteDataSource> { KtorArticleRemoteDataSource(get<HttpClient>(), hasApiKey) }
-    single<ArticleRepository> { OfflineFirstArticleRepository(get(), get()) }
+    single<ArticleRepository> { OfflineFirstArticleRepository(get(), get(), get()) }
 
     factory { ObserveArticles(get()) }
     factory { ObserveArticle(get()) }

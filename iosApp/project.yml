@@ -10,6 +10,11 @@ configs:
   Debug: debug
   Release: release
 
+packages:
+  Firebase:
+    url: https://github.com/firebase/firebase-ios-sdk
+    from: "11.0.0"
+
 targets:
   NusaNews:
     type: application
@@ -29,6 +34,13 @@ targets:
         UILaunchScreen: {}
         UISupportedInterfaceOrientations:
           - UIInterfaceOrientationPortrait
+    dependencies:
+      - package: Firebase
+        product: FirebaseAnalytics
+      - package: Firebase
+        product: FirebaseCrashlytics
+      - package: Firebase
+        product: FirebasePerformance
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.ahmaddody.newsreader.ios
@@ -42,6 +54,21 @@ targets:
           - $(inherited)
           - -framework
           - NusaNewsShared
+    postBuildScripts:
+      - name: Upload Crashlytics dSYMs
+        basedOnDependencyAnalysis: false
+        inputFiles:
+          - ${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}
+          - $(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)
+        script: |
+          # Kotlin/Native emits its own .dSYM for the shared framework; without this upload an iOS
+          # crash inside shared code is unsymbolicated and therefore not actionable.
+          RUN_SCRIPT="${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run"
+          if [ -f "$RUN_SCRIPT" ]; then
+            "$RUN_SCRIPT"
+          else
+            echo "warning: Crashlytics run script not found; resolve the Firebase package first."
+          fi
     preBuildScripts:
       - name: Build and embed shared KMP framework
         basedOnDependencyAnalysis: false
